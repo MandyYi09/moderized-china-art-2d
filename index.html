@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111f25">
+  <meta name="description" content="An interactive living scroll inspired by traditional Chinese guardian paintings. Stir the clouds and awaken the court.">
+  <title>The Cloud Court — A Living Scroll</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23111f25'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='42' fill='%23b9d9ad'%3E雲%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="scene.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="The Cloud Court home"><span class="seal" aria-hidden="true">雲<br>庭</span><span>THE CLOUD COURT<small>AN EXPERIMENT IN LIVING ART</small></span></a>
+    <button class="text-button" id="about-open">Behind the scroll <span aria-hidden="true">↗</span></button>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow"><span class="live-dot"></span> FOLK ART, SET IN MOTION <span class="edition">— STUDY 001</span></p><h1 id="title">Where the <em>clouds</em> come alive.</h1></div>
+      <p class="intro-note">A little theatre between earth and sky.<br>Move gently. The guardians are listening.</p>
+    </section>
+    <section class="scroll" aria-label="Interactive guardian painting">
+      <div class="scene-top"><span><i class="live-dot"></i> <span id="scene-status">THE COURT IS DREAMING</span></span><span class="scene-index">雲 庭 · 一</span></div>
+      <canvas id="scene" tabindex="0" aria-label="Three animated guardians among painted clouds. Drag a guardian to move it. Click to awaken it. Use the buttons below for keyboard access."></canvas>
+      <div class="loading" id="loading"><span class="seal">雲</span><p>Unrolling the clouds…</p></div>
+      <div class="vertical-poem" aria-hidden="true">雲起時 · 萬象生</div>
+      <div class="scene-bottom"><span id="hint">DRAG A GUARDIAN <b>·</b> TAP TO AWAKEN <b>·</b> STIR THE SKY</span><button id="fullscreen" title="Toggle fullscreen" aria-label="Toggle fullscreen">⛶</button></div>
+      <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+    </section>
+    <section class="controls" aria-label="Scene controls">
+      <div class="characters" aria-label="Awaken a guardian">
+        <button class="guardian-button" data-guardian="0"><span class="character-symbol celestial">☾</span><span><small>THE CELESTIAL</small>Keeper of the sky</span><span class="key">1</span></button>
+        <button class="guardian-button" data-guardian="1"><span class="character-symbol jade">❋</span><span><small>THE JADE</small>Keeper of the wind</span><span class="key">2</span></button>
+        <button class="guardian-button" data-guardian="2"><span class="character-symbol flame">☼</span><span><small>THE FLAME</small>Keeper of the light</span><span class="key">3</span></button>
+      </div>
+      <div class="world-controls"><label class="wind-control" for="wind"><span>WIND <output id="wind-value">Gentle</output></span><input type="range" id="wind" min="0" max="100" value="35" aria-label="Wind strength"></label><button id="sound" class="icon-button" aria-label="Enable ambient sound" aria-pressed="false" title="Ambient sound">♫<span class="off-dot"></span></button><button id="pause" class="icon-button" aria-label="Pause animation" aria-pressed="false" title="Pause animation">Ⅱ</button><button id="reset" class="icon-button" aria-label="Reset the scene" title="Reset the scene">↺</button></div>
+    </section>
+    <footer><p>Old pigments. New possibilities.</p><span>INSPIRED BY CHINESE GUARDIAN PAINTINGS <b>✦</b> MADE TO BE PLAYED</span></footer>
+  </main>
+  <div class="announcement" id="announcement" role="status" aria-live="polite"></div>
+  <dialog id="about"><button id="about-close" class="dialog-close" aria-label="Close">×</button><p class="eyebrow">THE ART BEHIND THE MOTION</p><h2>A painting.<br>A breath. <em>A world.</em></h2><p>This little theatre takes its palette, curling clouds, and richly patterned figures from the reference paintings in this project. The original brushwork becomes a cast of animated paper puppets, moving in a newly imagined sky.</p><div class="reference-strip"><img src="assets/guardian-celestial.jpg" alt="Reference painting of a blue guardian holding celestial orbs"><img src="assets/guardian-jade.jpg" alt="Reference painting of a bearded guardian among jade clouds"><img src="assets/guardian-flame.jpg" alt="Reference painting of a red-faced guardian holding a wheel"></div><p class="caption">Three source paintings · original files preserved in reference-images</p><h3>Play with the painting</h3><p>Drag the figures, tap a guardian to awaken its element, or move through the sky to stir the clouds. Adjust the wind for a quieter or livelier court. Sound is optional.</p><p class="shortcuts"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> Awaken guardians <span>·</span> <kbd>Space</kbd> Pause <span>·</span> <kbd>R</kbd> Reset</p><p class="caption">The character names and interactions are creative interpretations, not historical identifications. Built with Canvas 2D, original image textures, and synthesized sound. No external services.</p></dialog>
+</body>
+</html>
